@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import Pagination from "./Pagination";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
@@ -102,9 +101,10 @@ const Users = () => {
             })}
           </tbody>
         </table>
+        <br>
         <p>*Wards*</p>
         {currentData.map((user, index) => (
-          <p key={index}>
+          <span key={index}>
             {index +
               1 +
               " - " +
@@ -112,7 +112,7 @@ const Users = () => {
               " - " +
               user.name +
               (user.ref == true ? " - Ref" : "")}
-          </p>
+          </span>
         ))}
       </div>
     </div>
