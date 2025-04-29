@@ -43,8 +43,8 @@ const Users = () => {
       .catch((err) => console.log(err));
   }, []);
   return (
-    <div className="d-flex vh-100 bg-primary justify-content-center align-items-start">
-      <div className="w-50 bg-white rounded p-3">
+    <div className="d-flex justify-content-center align-items-start">
+      <div className="bg-white rounded p-3">
         <Link to="/create" className="btn btn-success">
           Add +
         </Link>
@@ -52,7 +52,7 @@ const Users = () => {
           {sort == false ? "A-Z" : "Z-A"}
         </button>
         <br />
-        <br />
+        {/* <br />
         <label htmlFor="search" style={{ marginBottom: 5, fontWeight: "bold" }}>
           {" "}
           Search Patient :
@@ -63,14 +63,15 @@ const Users = () => {
           placeholder="Enter patient name or room no"
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
-        />
-        <table className="table">
+        /> */}
+        <table className="table table-sm">
           <thead>
             <tr>
-              <th>Sr. No.</th>
-              <th>Room No.</th>
-              <th>Patient Name</th>
-              <th>Ref</th>
+              <th className="p-2">Sr. No.</th>
+              <th className="p-2">Room No.</th>
+              <th className="p-2">Patient Name</th>
+              <th className="p-2">Ref</th>
+              <th className="p-2">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -84,13 +85,13 @@ const Users = () => {
                   <td>
                     <Link
                       to={`/update/${user._id}`}
-                      className="btn btn-success"
+                      className="btn btn-success btn-sm"
                     >
                       Update
                     </Link>
                     <Link
                       to="/"
-                      className="btn btn-success ms-2"
+                      className="btn btn-success btn-sm ms-2"
                       onClick={() => handleDelete(user._id)}
                     >
                       Delete
@@ -101,7 +102,8 @@ const Users = () => {
             })}
           </tbody>
         </table>
-        <p>*Wards*</p>
+        <span className="fw-bold">*Wards*</span>
+        <br />
         {currentData.map((user, index) => (
           <span key={index}>
             {index +
