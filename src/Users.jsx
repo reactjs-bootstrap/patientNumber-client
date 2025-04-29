@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Users = () => {
@@ -9,6 +9,9 @@ const Users = () => {
   const [sort, setSort] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [postPerPage, setPostPerPage] = useState(10);
+  const [whatsAppText, setWhatsAppText] = useState("");
+
+  const navigate = useNavigate();
 
   const lastPostIndex = currentPage * postPerPage;
   const firstPostIndex = lastPostIndex - postPerPage;
@@ -33,6 +36,26 @@ const Users = () => {
       .delete("https://patientnumber.onrender.com/" + id)
       .then(() => window.location.reload());
   };
+
+  const textsend = currentData.map((user, index) => (
+    <span key={index}>
+      {index +
+        1 +
+        " - " +
+        user.room +
+        " - " +
+        user.name +
+        (user.ref == true ? " - Ref" : "")}
+      <br />
+    </span>
+  ));
+
+  const handleWhatsApp = () => {
+    const text = document.getElementById("textToEncode").innerText;
+    setWhatsAppText(encodeURIComponent(text));
+    // console.log(whatsAppText);
+  };
+
   useEffect(() => {
     axios
       .get("https://patientnumber.onrender.com/")
@@ -42,6 +65,7 @@ const Users = () => {
       })
       .catch((err) => console.log(err));
   }, []);
+
   return (
     <div className="d-flex justify-content-center align-items-start">
       <div className="bg-white rounded p-3">
@@ -85,15 +109,15 @@ const Users = () => {
                   <td className="text-center">{user.room}</td>
                   <td>{user.name}</td>
                   <td>{user.ref == true ? "Yes" : null}</td>
-                  <td className="text-center">
+                  <td>
                     <Link
                       to={`/update/${user._id}`}
                       className="btn btn-sm  p-0"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
+                        width="24"
+                        height="24"
                         viewBox="0 0 24 24"
                         color="green"
                       >
@@ -111,8 +135,8 @@ const Users = () => {
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
+                        width="24"
+                        height="24"
                         viewBox="0 0 40 40"
                         color="red"
                       >
@@ -131,22 +155,31 @@ const Users = () => {
             })}
           </tbody>
         </table>
-        <span className="fw-bold">*Wards*</span>
+        <div id="textToEncode">
+          <span className="fw-bold">*Wards*</span>
+          <br />
+          {currentData.map((user, index) => (
+            <span key={index}>
+              {index +
+                1 +
+                " - " +
+                user.room +
+                " - " +
+                user.name +
+                (user.ref == true ? " - Ref" : "")}
+              <br />
+            </span>
+          ))}
+        </div>
+        <button
+          className="btn btn-success btn-sm mt-2 "
+          onClick={() => handleWhatsApp()}
+        >
+          Copy Text
+        </button>
         <br />
-        {currentData.map((user, index) => (
-          <span key={index}>
-            {index +
-              1 +
-              " - " +
-              user.room +
-              " - " +
-              user.name +
-              (user.ref == true ? " - Ref" : "")}
-            <br />
-          </span>
-        ))}
         <Link
-          to="https://wa.me/919913560435"
+          to={`https://wa.me/919913560435?text=${whatsAppText}`}
           className="btn btn-success btn-sm mt-2 d-inline-flex gap-1"
         >
           <svg
