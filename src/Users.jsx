@@ -61,7 +61,7 @@ const Users = () => {
       .get("https://patientnumber.onrender.com/")
       .then((res) => {
         setUsers(res.data);
-        console.log(res.data);
+        // console.log(res.data);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -94,11 +94,36 @@ const Users = () => {
         <table className="table table-sm table-bordered mt-2 mb-2">
           <thead className="table-secondary">
             <tr>
-              <th className="pe-2 ps-2">Sr. No.</th>
-              <th className="pe-2 ps-2">Room No.</th>
-              <th className="pe-2 ps-2">Patient Name</th>
-              <th className="pe-2 ps-2">Ref</th>
-              <th className="pe-2 ps-2">Action</th>
+              <th
+                style={{ textAlign: "center", alignContent: "center" }}
+                className="pe-2 ps-2"
+              >
+                Sr. No.
+              </th>
+              <th
+                style={{ textAlign: "center", alignContent: "center" }}
+                className="pe-2 ps-2"
+              >
+                Room No.
+              </th>
+              <th
+                style={{ textAlign: "center", alignContent: "center" }}
+                className="pe-2 ps-2"
+              >
+                Patient Name
+              </th>
+              <th
+                style={{ textAlign: "center", alignContent: "center" }}
+                className="pe-2 ps-2"
+              >
+                Ref
+              </th>
+              <th
+                style={{ textAlign: "center", alignContent: "center" }}
+                className="pe-2 ps-2"
+              >
+                Action
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -144,7 +169,7 @@ const Users = () => {
                         <path
                           fill="currentColor"
                           d="M21.499 19.994L32.755 8.727a1.064 1.064 0 0 0-.001-1.502c-.398-.396-1.099-.398-1.501.002L20 18.494L8.743 7.224c-.4-.395-1.101-.393-1.499.002a1.05 1.05 0 0 0-.309.751c0 .284.11.55.309.747L18.5 19.993L7.245 31.263a1.064 1.064 0 0 0 .003 1.503c.193.191.466.301.748.301h.006c.283-.001.556-.112.745-.305L20 21.495l11.257 11.27c.199.198.465.308.747.308a1.06 1.06 0 0 0 1.061-1.061c0-.283-.11-.55-.31-.747z"
-                          stroke-width="1"
+                          strokeWidth="1"
                           stroke="currentColor"
                         />
                       </svg>
@@ -197,8 +222,8 @@ const Users = () => {
                 y1="100%"
                 y2="0%"
               >
-                <stop offset="0%" stop-color="#1faf38" />
-                <stop offset="100%" stop-color="#60d669" />
+                <stop offset="0%" stopColor="#1faf38" />
+                <stop offset="100%" stopColor="#60d669" />
               </linearGradient>
               <linearGradient
                 id="logosWhatsappIcon1"
@@ -207,8 +232,8 @@ const Users = () => {
                 y1="100%"
                 y2="0%"
               >
-                <stop offset="0%" stop-color="#f9f9f9" />
-                <stop offset="100%" stop-color="#fff" />
+                <stop offset="0%" stopColor="#f9f9f9" />
+                <stop offset="100%" stopColor="#fff" />
               </linearGradient>
             </defs>
             <path
@@ -222,7 +247,7 @@ const Users = () => {
             <path
               fill="#fff"
               d="M96.678 74.148c-2.386-5.303-4.897-5.41-7.166-5.503c-1.858-.08-3.982-.074-6.104-.074c-2.124 0-5.575.799-8.492 3.984c-2.92 3.188-11.148 10.892-11.148 26.561s11.413 30.813 13.004 32.94c1.593 2.123 22.033 35.307 54.405 48.073c26.904 10.609 32.379 8.499 38.218 7.967c5.84-.53 18.844-7.702 21.497-15.139c2.655-7.436 2.655-13.81 1.859-15.142c-.796-1.327-2.92-2.124-6.105-3.716s-18.844-9.298-21.763-10.361c-2.92-1.062-5.043-1.592-7.167 1.597c-2.124 3.184-8.223 10.356-10.082 12.48c-1.857 2.129-3.716 2.394-6.9.801c-3.187-1.598-13.444-4.957-25.613-15.806c-9.468-8.442-15.86-18.867-17.718-22.056c-1.858-3.184-.199-4.91 1.398-6.497c1.431-1.427 3.186-3.719 4.78-5.578c1.588-1.86 2.118-3.187 3.18-5.311c1.063-2.126.531-3.986-.264-5.579c-.798-1.593-6.987-17.343-9.819-23.64"
-              stroke-width="6.5"
+              strokeWidth="6.5"
               stroke="#fff"
             />
           </svg>{" "}
