@@ -112,6 +112,7 @@ const Users = () => {
               " - " +
               user.name +
               (user.ref == true ? " - Ref" : "")}
+            <br>
           </span>
         ))}
       </div>
