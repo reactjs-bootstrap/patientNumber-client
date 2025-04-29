@@ -101,7 +101,6 @@ const Users = () => {
             })}
           </tbody>
         </table>
-        <br>
         <p>*Wards*</p>
         {currentData.map((user, index) => (
           <span key={index}>
@@ -112,7 +111,7 @@ const Users = () => {
               " - " +
               user.name +
               (user.ref == true ? " - Ref" : "")}
-            <br>
+            <br />
           </span>
         ))}
       </div>
