@@ -85,7 +85,7 @@ const Users = () => {
                   <td className="text-center">{user.room}</td>
                   <td>{user.name}</td>
                   <td>{user.ref == true ? "Yes" : null}</td>
-                  <td>
+                  <td className="text-center">
                     <Link
                       to={`/update/${user._id}`}
                       className="btn btn-sm  p-0"
