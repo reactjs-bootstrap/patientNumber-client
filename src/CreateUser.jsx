@@ -28,7 +28,11 @@ const CreateUsers = () => {
               type="text"
               placeholder="Enter Patient Name"
               className="form-control"
-              value={name}
+              value={name
+                .toLowerCase()
+                .split(" ")
+                .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(" ")}
               onChange={(e) => setName(e.target.value)}
             />
           </div>
