@@ -8,7 +8,7 @@ const Users = () => {
   const [postValue, setPostValue] = useState("");
   const [sort, setSort] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postPerPage, setPostPerPage] = useState(10);
+  const [postPerPage, setPostPerPage] = useState(300);
   const [whatsAppText, setWhatsAppText] = useState("");
 
   const navigate = useNavigate();
